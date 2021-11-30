@@ -21,7 +21,7 @@ const promises = [];
 const displayPokemon = (pokemon) =>{
     console.table(pokemon);
     const pokemonHTMLString = pokemon.map (pokeman => `
-    <li>
+    <li class="cards">
         <img src="${pokeman.image}"/>
         <h2>${pokeman.name}</h2>
         <p>${pokeman.type}</p>

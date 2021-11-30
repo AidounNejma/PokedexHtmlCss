@@ -16,25 +16,36 @@ a{
 }
 .wrapperLeft{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 70px 100px;
+    grid-template-columns: repeat(1, 1fr);
     overflow: scroll;
     overflow-x: hidden;
-
+    padding: 0 3%;
+    background-color: thistle;
 }
 .wrapperRight{
     display: grid;
     background-color: aqua;
     height: 100vh;
 }
-.thumbnail img{
-    width: 100%;
+
+#pokedex{
+    width: 100%;    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+    grid-gap: 26px;
+    padding: 2% 0;
+    list-style-type: none;
 }
-.thumbnail{
-    text-align: center;
-    background-color: blue;
-    margin: 20px;
+
+.cards{
+    border: 1px solid black;
+    display: flex;
+    height: 226px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
 /*
 ::-webkit-scrollbar {
     width: 10px;
