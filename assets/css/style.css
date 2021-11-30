@@ -35,3 +35,25 @@ a{
     background-color: blue;
     margin: 20px;
 }
+/*
+::-webkit-scrollbar {
+    width: 10px;
+} 
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+::-webkit-scrollbar-thumb {
+    background-image: url("../img/Pikachu.png");
+    width: 100%;
+}
+
+::-webkit-scrollbar-button {
+    background-color: red;
+    background-image: url("../img/Pikachu.png");
+
+}
+::-webkit-scrollbar-corner {
+    background-color: aqua;
+    height: 100px;
+}
+*/
