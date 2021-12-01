@@ -103,9 +103,9 @@ const fetchPokemon = async() => {
         promises.push(fetch(url).then((res) => res.json()));
     }
     var pokemons = await Promise.all(promises);
-    console.log(pokemons)
+    //console.log(pokemons)
     pokemons = await Promise.all(pokemons.map(async(data) => {
-        console.log(data)
+        //console.log(data)
         const element = await getData(data)
         return element
     }));
@@ -137,3 +137,6 @@ fetchPokemon();
 
 
 /*************************** Animation slide *******************************/ 
+
+var cards = document.querySelector(".cards");
+console.log(cards);
