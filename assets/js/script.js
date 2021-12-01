@@ -76,8 +76,8 @@ function openSideMenu(e){
     if(pokeVue.style.display = "none"){
         pokeName.innerHTML = e.currentTarget.dataset.name;
         pokePicture.src = e.currentTarget.dataset.image;
-        pokeDescription.innerHTML = "Description : " + e.currentTarget.dataset.description;
-        pokeType.innerHTML = "Type : " + e.currentTarget.dataset.type;
+        pokeDescription.innerHTML = e.currentTarget.dataset.description;
+        pokeType.innerHTML = e.currentTarget.dataset.type;
 
         pokeVue.classList.add("slideInRight");
         pokeVue.style.display = "flex";
