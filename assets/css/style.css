@@ -50,7 +50,7 @@ a{
     /* Animation cards */
     @keyframes bounce{
         20%{
-            transform: translateY(-6px);
+            transform: translateY(-10px);
         }
         40%{
             transform: translateY(0px);
@@ -116,6 +116,10 @@ a{
 
 .cards:hover{
     animation: bounce 0.5s linear;
+}
+
+.cards:hover h2{
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1f0512, 0 0 40px #1f0512, 0 0 50px #1f0512, 0 0 60px #1f0512, 0 0 70px #1f0512;
 }
 
 .card-name{
