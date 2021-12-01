@@ -11,6 +11,9 @@
 
 body{
     overflow-y: hidden;
+    background-image: url("../img/Landscape.gif");
+    background-size: cover;
+    
 }
 
 a{
@@ -67,7 +70,7 @@ a{
     display: none;
 }
 .logo{
-    background-color: var(--main-darkgrey);
+    /* background-color: var(--main-darkgrey); */
     display: flex;
     justify-content: center;
 }
@@ -89,7 +92,6 @@ a{
     overflow: scroll;
     overflow-x: hidden;
     padding: 0 3%;
-    background-color: var(--main-darkgrey);
 }
 
 #pokedex{
@@ -127,7 +129,6 @@ a{
 /* Partie droite */
 .wrapperRight{
     display: grid;
-    background-color: var(--main-darkgrey);
     height: 100vh;
 }
 
@@ -203,7 +204,7 @@ a{
         justify-content: center;
         height: 100%;
         width: 100%;
-        background-color: #312f2f9f;
+       /*  background-color: #312f2f9f; */
     }
     
     .close{
