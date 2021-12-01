@@ -13,6 +13,7 @@ body{
     overflow-y: hidden;
     background-image: url("../img/Landscape.gif");
     background-size: cover;
+    background-repeat: no-repeat;
     
 }
 
@@ -20,11 +21,6 @@ a{
     text-decoration: none;
     color: white;
 }
-
-/* Création de variables de couleurs pour toujours garder les mêmes sans se tromper */
-:root{
-    --main-darkgrey: #312f2f;
-} 
 
 /* Fin Général */
 
