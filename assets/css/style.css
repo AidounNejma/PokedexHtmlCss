@@ -38,23 +38,6 @@ a{
     transform: translateX(0);
     }
     } 
-
-    .slideOutLeft {
-        animation-name: slideOutLeft;
-        animation-duration: 1s;
-        animation-fill-mode: both;
-        }
-        @keyframes slideOutLeft {
-        0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-        }
-        100% {
-        visibility: hidden;
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-        }
-        } 
 /* Fin Animation */
 
 /* Main */
@@ -108,24 +91,48 @@ a{
 }
 
 .pokemonSheet{
-    background-color: azure;
+    background-image: url("../img/d3n22fk-ca665f8a-9aa5-4508-9132-a0cc7b06c3b8.png") ;
     width: 272px;
-    height: 351px;
+    height: 415px;
     margin: 34% 16%;
+    padding: 4%;
     border-radius: 40px;
     box-shadow: 20px 25px 5px 5px #0000001e;
-    border: 2px solid black;
+    border: 6px solid gold;
     display: none;
     flex-direction: column;
     align-items: center;
 }
 
 .pokePicture{
-    width: 150px;
-    height: 150px;
+    width: 86%;
+    height: 55%;
+    border: 3px solid gold;
+    background-image: url(https://cdn.wallpapersafari.com/94/14/OsG20P.jpg);
 }
 
 .pokemonName{
     font-size: 25px;
 }
 
+.pokemonSheet h4{
+    text-decoration: underline;
+    padding-top: 5%;
+}
+
+/* Scrollbar  */
+::-webkit-box-shadow{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+    width: 10px;
+} 
+
+::-webkit-scrollbar{
+    width: 6px;
+    background-color: var(--main-darkgrey);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #c7c731;
+    border-radius: 20px;
+}
