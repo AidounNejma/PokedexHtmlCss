@@ -30,52 +30,7 @@ a{
     background-color: thistle;
 }
 
-.flip-card {
-    /* on indique les dimensions de la carte, ici je les adapte à la taille de ma photo recorder*/
-    background-color: transparent; /* transparent pour ne pas avoir de fond au moment du flip */
-    width: 100%; /* 32% car 3 carte. On fait en sorte que le total ne dépasse pas 98% */
-    height: 400px;
-    border-radius: 20px;
-    perspective: 2000px;
-    margin-bottom: 7%;
-     /* Pour l'effet 3D des coins qui débordent, plus la valeur est faible plus l'elasticité est grande */
-}
 
-.inner-flip {
-    position: relative;
-    background-color: transparent;
-    border-radius: 20px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    box-shadow: 0 0 6px 12px rgb(0 0 0 / 35%);
-}
-
-.flip-card:hover .inner-flip { /* on flip la card avec une pseudo classe */
-    transform: rotateY(180deg);
-}
-/* à cette étape la photo et le texte sont l'un au dessus de l'autre et flip ensemble */
-/* on va positionner le texte et la photo dos à dos */
-.front-flip, .back-flip {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-
-.front-flip {
-    background-color: transparent;
-    justify-content: center;
-    height: 400px;
-    width: 100%;
-    border-radius: 20px;
-    border: solid #000000;
-    background-position: center;
-    background-size: cover;
-}
 
 /* Partie droite */
 .wrapperRight{
@@ -101,7 +56,28 @@ a{
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    background-color: lightgreen
 }
+
+.cards:hover{
+    animation: bounce 0.5s linear;
+}
+
+@keyframes bounce{
+    20%{
+        transform: translateY(-6px);
+    }
+    40%{
+        transform: translateY(0px);
+    }
+    60%{
+        transform: translateY(-2px);
+    }
+    80%{
+        transform: translateY(-Opx);
+    }
+}
+
 .card-name{
     color: white;
     text-transform: capitalize;
