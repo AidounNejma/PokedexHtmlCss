@@ -8,8 +8,11 @@ const fetchPokemon = () => {
     }
     Promise.all(promises).then((results) => {
         const pokemon = results.map((data) => {
+            /* let details = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then((res) => res.json); */
+            let description = data.flavor_text_entries.filter(entry => entry.language.name == "fr")[0].flavor_text;
+            console.log(description);
             let pokedata = {
-                description: data.flavor_text_entries.filter(entry => entry.language.name == "fr")[0]?.flavour_text,
+                description: description,
                 name: data.names.filter(entry => entry.language.name == "fr")[0]?.name,
                 id: data.id,
                 /* 
@@ -60,3 +63,6 @@ fetchPokemon();
         displayPokemon(pokemon);
     });
 */
+
+
+/*************************** Animation slide *******************************/ 
