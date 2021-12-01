@@ -67,14 +67,14 @@ a{
 }
 
 .cards{
-    border: 1px solid black;
+    border: 1px solid gold;
     display: flex;
     height: 226px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
-    background-color: lightgreen
+    border-radius: 20px;
 }
 
 .cards:hover{
@@ -100,6 +100,7 @@ a{
     color: white;
     text-transform: capitalize;
     font-weight: 900;
+    text-shadow:0 0 3px black;
 }
 
 
@@ -133,6 +134,7 @@ a{
 
 .pokemonName{
     font-size: 25px;
+    
 }
 
 .pokemonSheet h4{
