@@ -1,68 +1,62 @@
 const pokedex = document.getElementById("pokedex")
 
-const fetchPokemon = () => {
+const getDetails = async(id)=> {
+    let details = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => res.json());
+    return details;
+}
+
+const getData = async(data) =>{
+    let details = await getDetails(data.id);
+    console.log(data);
+    let pokedata = {
+        description: data.flavor_text_entries.filter(entry => entry.language.name == "fr")[0].flavor_text,
+        name: data.names.filter(entry => entry.language.name == "fr")[0].name,
+        id: data.id,
+        image: details.sprites['front_default'],
+        type: details.types.map((type) => type.type.name),
+        color: data.color.name,
+    }
+    //console.log(pokedata)
+    return pokedata;
+}
+
+const fetchPokemon = async() => {
     const promises = [];
-    for (let i = 1; i <= 150; i++) {
+    for (let i = 1; i <= 50; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon-species/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
-    Promise.all(promises).then((results) => {
-        const pokemon = results.map((data) => {
-            /* let details = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then((res) => res.json); */
-            let description = data.flavor_text_entries.filter(entry => entry.language.name == "fr")[0].flavor_text;
-            console.log(description);
-            let pokedata = {
-                description: description,
-                name: data.names.filter(entry => entry.language.name == "fr")[0]?.name,
-                id: data.id,
-                /* 
-                image: data.sprites['front_default'],
-                type: data.types.map((type) => type.type.name),
-                 */
-            }
+    var pokemons = await Promise.all(promises);
+    console.log(pokemons)
+    pokemons = await Promise.all(pokemons.map(async(data) => {
+        console.log(data)
+        const element = await getData(data)
+        return element
+    }));
+    console.log(pokemons)
 
-            return pokedata;
-        }
-        );
-        displayPokemon(pokemon);
-    });
+    displayPokemon(pokemons);
 };
 
 const displayPokemon = (pokemon) => {
-    console.table(pokemon);
-    const pokemonHTMLString = pokemon.map(pokeman => `
-    <li class="cards"
-        data-name="${pokeman.name}"
-        data-image="${pokeman.image}"
-        data-type="${pokeman.type}"
+    //console.table(pokemon);
+    const pokemonHTMLString = pokemon.map(pokedata => `
+    <li class="cards" style="background-color:${pokedata.color}"
+        data-name="${pokedata.name}"
+        data-image="${pokedata.image}"
+        data-type="${pokedata.description}"
     >
-        <img src="${pokeman.image}"/>
-        <h2 class="card-name">${pokeman.name}</h2>
-        <p class="card-type">${pokeman.type}</p>
+        <img src="${pokedata.image}"/>
+        <h2 class="card-name">${pokedata.name}</h2>
+        <p class="card-type">${pokedata.type}</p>
     </li>
         `)
-    console.log(pokemonHTMLString);
+    //console.log(pokemonHTMLString);
     pokedex.innerHTML = pokemonHTMLString.join(' ');
 };
 
 fetchPokemon();
 
-/*    
-    for (let i = 1; i <= 150; i++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        promises.push(fetch(url).then((res) => res.json()));
-    }
-    Promise.all(promises).then((results) => {
-        const pokemon = results.map((data) =>
-        ({
-            name: data.name,
-            id: data.id,
-            image: data.sprites['front_default'],
-            type: data.types.map((type) => type.type.name)
-        }));
-        displayPokemon(pokemon);
-    });
-*/
 
 
 /*************************** Animation slide *******************************/ 
