@@ -6,13 +6,56 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: Comfortaa;
 }
 
 a{
     text-decoration: none;
     color: white;
 }
+
+/* Création de variables de couleurs pour toujours garder les mêmes sans se tromper */
+:root{
+    --main-darkgrey: #312f2f;
+} 
+
 /* Fin Général */
+
+/* Animation */
+/* animation slide carte de droite */
+.slideInRight {
+    animation-name: slideInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    }
+    @keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    } 
+
+    /* Animation cards */
+    @keyframes bounce{
+        20%{
+            transform: translateY(-6px);
+        }
+        40%{
+            transform: translateY(0px);
+        }
+        60%{
+            transform: translateY(-2px);
+        }
+        80%{
+            transform: translateY(-Opx);
+        }
+    }
+/* Fin Animation */
 
 /* Main */
 .container{
@@ -29,6 +72,7 @@ a{
     overflow-x: hidden;
     padding: 0 3%;
     background-color: #EFEFBB;
+    background-color: var(--main-darkgrey);
 }
 
 #pokedex{
@@ -40,8 +84,9 @@ a{
     list-style-type: none;
 }
 
-.Opacity{
-    border: 1px solid black;
+
+.cards{
+    border: 1px solid gold;
     display: flex;
     height: 100%;
     width: 100%;
@@ -50,6 +95,7 @@ a{
     flex-direction: column;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
 }
 .cards{
     width: 100%;
@@ -84,8 +130,8 @@ a{
 .card-name{
     color: ;
     text-transform: capitalize;
-    font-family: Comfortaa;
     font-weight: 900;
+    text-shadow:0 0 3px black;
 }
 */
 .box{
@@ -158,51 +204,54 @@ a{
 /* Partie droite */
 .wrapperRight{
     display: grid;
-    background-color: #312f2f;
+    background-color: var(--main-darkgrey);
     height: 100vh;
 }
 
 .pokemonSheet{
-    background-color: azure;
-    width: 272px;
-    height: 500px;
-    margin: 16%;
+    background-image: url("../img/d3n22fk-ca665f8a-9aa5-4508-9132-a0cc7b06c3b8.png") ;
+    width: 280px;
+    height: 450px;
+    margin: 34% 16%;
+    padding: 4%;
     border-radius: 40px;
     box-shadow: 20px 25px 5px 5px #0000001e;
-    border: 2px solid black;
-    display: flex;
+    border: 6px solid gold;
+    display: none;
     flex-direction: column;
     align-items: center;
-
 }
 
 .pokePicture{
-    background-color: #d3d2d2;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 86%;
+    height: 55%;
+    border: 3px solid gold;
+    background-image: url(https://cdn.wallpapersafari.com/94/14/OsG20P.jpg);
 }
 
+.pokemonName{
+    font-size: 25px;
+    
+}
 
-/*
-::-webkit-scrollbar {
+.pokemonSheet h4{
+    text-decoration: underline;
+    padding-top: 5%;
+}
+
+/* Scrollbar  */
+::-webkit-box-shadow{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
     width: 10px;
 } 
-::-webkit-scrollbar-track {
-    background-color: black;
-}
-::-webkit-scrollbar-thumb {
-    background-image: url("../img/Pikachu.png");
-    width: 100%;
+
+::-webkit-scrollbar{
+    width: 6px;
+    background-color: var(--main-darkgrey);
 }
 
-::-webkit-scrollbar-button {
-    background-color: red;
-    background-image: url("../img/Pikachu.png");
-
+::-webkit-scrollbar-thumb{
+    background-color: #c7c731;
+    border-radius: 20px;
 }
-::-webkit-scrollbar-corner {
-    background-color: aqua;
-    height: 100px;
-}
-*/

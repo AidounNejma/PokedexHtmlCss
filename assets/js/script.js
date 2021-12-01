@@ -31,15 +31,15 @@ const fetchPokemon = async() => {
     //console.log(pokemons)
     pokemons = await Promise.all(pokemons.map(async(data) => {
         //console.log(data)
-        const element = await getData(data)
-        return element
+        const element = await getData(data)/* on rappelle la fonction getData (qui a les données des deux URL) et on la stocke dans element*/
+        return element /* on retourne element */
     }));
-    console.log(pokemons)
+    //console.log(pokemons)
 
-    displayPokemon(pokemons);
+    displayPokemon(pokemons); /* On appelle la fonction displayPokemon avec pour paramètre : pokemons (qu'on a définit juste au dessus) */
 };
 
-const displayPokemon = (pokemon) => {
+const displayPokemon = (pokemon) => { /* fonction nous permettant d'avoir un rendu visuel */
     //console.table(pokemon);
     const pokemonHTMLString = pokemon.map(pokedata => `
     <div class="box">
@@ -60,15 +60,51 @@ const displayPokemon = (pokemon) => {
     </li>
     </div>
         `)
+    const pokemonHTMLString = pokemon.map(pokedata =>{ /* constante pokemonHTMLString contenant */
+        let newElement = document.createElement('li');
+        newElement.style.backgroundColor = pokedata.color; /* changement du style du li */
+        newElement.classList = "cards"; /* ajout de la classe à l'élément li */
+        newElement.dataset.name = pokedata.name;/* on écrit tous les paramètres que l'on veut faire passer dans la balise li */
+        newElement.dataset.image = pokedata.image;
+        newElement.dataset.description = pokedata.description;
+        newElement.dataset.type = pokedata.type;
+        newElement.addEventListener('click', openSideMenu)
+        newElement.innerHTML = /* ce qui va apparaitre dans vignettes (image et nom du pokemon) */
+        `
+        <img src="${pokedata.image}"/>
+        <h2 class="card-name">${pokedata.name}</h2> 
+        ` 
+        
+        pokedex.append(newElement);
+    })
     //console.log(pokemonHTMLString);
-    pokedex.innerHTML = pokemonHTMLString.join(' ');
+    
 };
 
-fetchPokemon();
+fetchPokemon(); /* appel de la fonction */
 
 
 
 /*************************** Animation slide *******************************/ 
+var pokePicture = document.querySelector(".pokePicture");
+var pokeName = document.querySelector(".pokemonName");
+var pokeDescription = document.querySelector(".description");
+var pokeType = document.querySelector(".pokeType");
+var pokeVue = document.querySelector(".pokemonSheet");
 
-var cards = document.querySelector(".cards");
-console.log(cards);
+function openSideMenu(e){
+    if(pokeVue.style.display = "none"){
+        pokeName.innerHTML = e.currentTarget.dataset.name;
+        pokePicture.src = e.currentTarget.dataset.image;
+        pokeDescription.innerHTML = e.currentTarget.dataset.description;
+        pokeType.innerHTML = e.currentTarget.dataset.type;
+
+        pokeVue.classList.add("slideInRight");
+        pokeVue.style.display = "flex";
+        setTimeout(function(){ 
+            pokeVue.classList.remove("slideInRight");
+        }
+        , 1000);
+        
+    } 
+}
