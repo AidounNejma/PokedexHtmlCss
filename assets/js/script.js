@@ -74,7 +74,6 @@ const displayPokemon = (pokemon) => { /* fonction nous permettant d'avoir un ren
         <img src="${pokedata.image}"/>
         <h2 class="card-name">${pokedata.name}</h2> 
         ` 
-        
         pokedex.append(newElement);
     })
     //console.log(pokemonHTMLString);
@@ -86,19 +85,22 @@ fetchPokemon(); /* appel de la fonction */
 
 
 /*************************** Animation slide *******************************/ 
+/* On récupère des divs vides que l'on a créé pour y insérer les valeurs que l'on a passé en paramètre de nos cards (li) */
 var pokePicture = document.querySelector(".pokePicture");
 var pokeName = document.querySelector(".pokemonName");
 var pokeDescription = document.querySelector(".description");
 var pokeType = document.querySelector(".pokeType");
 var pokeVue = document.querySelector(".pokemonSheet");
+var wrapperRight = document.querySelector('.wrapperRight');
 
-function openSideMenu(e){
+function openSideMenu(e){ /* e = event */
     if(pokeVue.style.display = "none"){
         pokeName.innerHTML = e.currentTarget.dataset.name;
         pokePicture.src = e.currentTarget.dataset.image;
         pokeDescription.innerHTML = e.currentTarget.dataset.description;
         pokeType.innerHTML = e.currentTarget.dataset.type;
 
+        wrapperRight.style.display = "flex";
         pokeVue.classList.add("slideInRight");
         pokeVue.style.display = "flex";
         setTimeout(function(){ 
@@ -107,4 +109,12 @@ function openSideMenu(e){
         , 1000);
         
     } 
+}
+
+var closeButton = document.querySelector('.close');
+closeButton.addEventListener('click', closeSideMenu);
+function closeSideMenu(){
+    if(wrapperRight.style.display = "flex"){
+        wrapperRight.style.display = 'none';
+    }
 }

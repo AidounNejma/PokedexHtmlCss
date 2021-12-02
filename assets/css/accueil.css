@@ -1,0 +1,56 @@
+/* Général */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=PT+Serif:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Comfortaa;
+}
+
+body{
+    overflow-y: hidden;
+    background-image: url("../img/Landscape.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    border: 1px solid #fff;
+    padding: 2%;
+    border-radius: 20px;
+}
+
+/* Fin Général */
+
+/* Main */
+.logo{
+    /* background-color: var(--main-darkgrey); */
+    display: flex;
+    justify-content: center;
+}
+
+.logo img{
+    width: 500px;
+}
+
+.linkEnter{
+    display: flex;
+    justify-content: center;
+    margin: 20% 0 30% 0;
+}
+
+a:hover{
+    background-color: #00000094;
+}
+
+
+@media screen and (max-width: 414px){
+    .logo img {
+        width: 360px;
+    }
+}
