@@ -13,6 +13,7 @@ body{
     overflow-y: hidden;
     background-image: url("../img/Landscape.gif");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 a{
@@ -40,9 +41,16 @@ a{
 .linkEnter{
     display: flex;
     justify-content: center;
-    margin-top: 20%;
+    margin: 20% 0 30% 0;
 }
 
 a:hover{
     background-color: #00000094;
+}
+
+
+@media screen and (max-width: 414px){
+    .logo img {
+        width: 360px;
+    }
 }
